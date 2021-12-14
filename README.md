@@ -1,5 +1,5 @@
 # Weather-Forecast
-A simple ML programm, that forecasts the weather in Basel
+A simple ML programm, that forecasts the weather for the next day, basing on the data of the previous days in Basel
 
 Uses scikit-learn library along with pandas.
 
