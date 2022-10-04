@@ -1,17 +1,19 @@
 # Import modules
 import pandas as pd
+import numpy as np
 from sklearn import linear_model
 
 # Create a dataset from the CSV file
 data = pd.read_csv("data.csv", sep=";")
+data = data.drop(columns="Date")
 
 # We are going to train model to predict meteorology parameters according to data from N previous days
 
-# As sklearn doesn't allow to pass 3D arrays into the fit() method, we'll use each parameter separately
-temperature = data["Temperature"]
-humidity = data["Humidity"]
-wind_speed = data["Wind Speed"]
-pressure = data["Pressure"]
+# As sklearn doesn't allow passing 3D arrays into the fit() method, we'll use each parameter separately
+temperature = np.array(data["Temperature"])
+humidity = np.array(data["Humidity"])
+wind_speed = np.array(data["Wind Speed"])
+pressure = np.array(data["Pressure"])
 
 # The last index of dataframe, used to train the model
 train_end = int(len(data) * 0.8)  # normally, 80% of dataset is used to train and 20% to test
