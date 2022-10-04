@@ -36,7 +36,7 @@ def train_model(dataset, n):
 
     # prepare datasets for training the model
     x = grouped[:len(dataset) - n]
-    target = dataset.values[n:]
+    target = dataset[n:]
 
     # build and train the model
     regression_model = linear_model.LinearRegression()
@@ -52,7 +52,7 @@ def test_model(dataset, n, split, value_type="R"):
     regression_model = train_model(standard_dataset, n)
     prediction = to_source_format(regression_model.predict(grouped[split - n:]), value_type, dataset)
 
-    return mean_abs_error(dataset.values[split:], prediction)
+    return mean_abs_error(dataset[split:], prediction)
 
 
 def mean_abs_error(real, predicted):
@@ -61,8 +61,8 @@ def mean_abs_error(real, predicted):
 
 
 def zero_theory_mae(dataset, split):
-    real = dataset.values[split:len(dataset)]
-    predicted = dataset.values[split - 1:len(dataset) - 1]
+    real = dataset[split:len(dataset)]
+    predicted = dataset[split - 1:len(dataset) - 1]
 
     return mean_abs_error(real, predicted)
 
@@ -78,7 +78,6 @@ def optimal_n(array, split, value_type="R", limit=120):
             opt_n = n
             mae = mae_n
 
-    print(opt_n)
     return opt_n
 
 
