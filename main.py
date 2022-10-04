@@ -1,7 +1,8 @@
 # Import modules
 import pandas as pd
 import numpy as np
-from sklearn import linear_model
+from sklearn import linear_model as sk
+from regression import Regressors as r
 
 # Create a dataset from the CSV file
 data = pd.read_csv("data.csv", sep=";")
