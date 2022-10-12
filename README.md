@@ -1,7 +1,5 @@
 # Weather-Forecast
-A simple ML programm, that forecasts the weather for the next day, basing on the data of the previous days in Basel
-
-Uses scikit-learn library along with pandas.
+A simple tutorial-like ML program, that forecasts the weather in Basel, comparing a custom regression library and Scikit-Learn linear model
 
 Database is taken from this site: https://www.meteoblue.com/en/weather/historyclimate/weatherarchive/basel_switzerland_2661604.
 
